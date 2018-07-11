@@ -22,4 +22,9 @@ public class ContatoService {
 		return contatos.findAll();
 	}
 	
+	public void remover(Long codigo) {
+		Contato contato = contatos.findOne(codigo);
+		contatos.delete(contato);
+	}
+	
 }

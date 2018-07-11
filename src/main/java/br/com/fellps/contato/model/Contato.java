@@ -24,6 +24,10 @@ public class Contato {
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
+	
+	public boolean isDesativado() {
+		return Status.DESATIVADO.equals(this.status);
+	}
 
 	public Long getCodigo() {
 		return codigo;

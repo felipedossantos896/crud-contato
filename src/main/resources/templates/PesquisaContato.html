@@ -29,9 +29,14 @@
 						<td th:text="${contato.numeroFixo}" class="text-center"></td>
 						<td th:text="${contato.numeroCelular}" class="text-center"></td>
 						<td class="text-center">
-							<span th:text="${contato.status}" class="label label-success"></span>
+							<span class="label" th:text="${contato.status}"
+								th:classappend="${contato.desativado ? 'label-danger' : 'label-success'}" ></span>
 						</td>
-						<td></td>
+						<td class="text-center">
+							<a class="btn btn-link btn-xs" th:href="@{/contatos/{codigo}(codigo=${contato.codigo})}">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
