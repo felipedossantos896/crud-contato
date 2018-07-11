@@ -7,45 +7,44 @@
 
 <section layout:fragment="conteudo">
 
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">Cadastro de Contato</h3>
-		</div>
-		<div class="panel-body">
-			<form method="POST" th:action="@{/contatos}" th:object="${contato}">
-				<div class="row">
-					<div class="form-group col-sm-4">
-						<label for="nome">Nome</label> 
-						<input id="nome" type="text" class="form-control" th:field="*{nome}" />
-					</div>
+	<div class="container">
+		<h1 class="titulo-painel">Novo Contato</h1>
+
+		<form method="POST" th:action="@{/contatos}" th:object="${contato}">
+			<div class="row">
+				<div class="form-group col-sm-4">
+					<label for="nome">Nome</label> <input id="nome" type="text"
+						class="form-control" th:field="*{nome}" />
 				</div>
-				<div class="row">
-					<div class="form-group  col-sm-2">
-						<label for="numeroFixo">Número Fixo</label> 
-						<input id="numeroFixo" type="text" class="form-control" th:field="*{numeroFixo}" />
-					</div>
+			</div>
+			<div class="row">
+				<div class="form-group  col-sm-2">
+					<label for="numeroFixo">Número Fixo</label> <input id="numeroFixo"
+						type="text" class="form-control" th:field="*{numeroFixo}" />
 				</div>
-				<div class="row">
-					<div class="form-group  col-sm-2">
-						<label for="numeroCelular">Número Celular</label> 
-						<input id="numeroCelular" type="text" class="form-control" th:field="*{numeroCelular}" />
-					</div>
+			</div>
+			<div class="row">
+				<div class="form-group  col-sm-2">
+					<label for="numeroCelular">Número Celular</label> <input
+						id="numeroCelular" type="text" class="form-control"
+						th:field="*{numeroCelular}" />
 				</div>
-				<div class="row">
-					<div class="form-group  col-sm-2">
-						<label for="status">Status</label> 
-						<select id="status" class="form-control" th:field="*{status}">
-							<option th:each="status : ${todosStatus}" th:value="${status}" 
-								th:text="${status.descricao}"></option>
-						</select>
-					</div>
+			</div>
+			<div class="row">
+				<div class="form-group  col-sm-2">
+					<label for="status">Status</label> <select id="status"
+						class="form-control" th:field="*{status}">
+						<option th:each="status : ${todosStatus}" th:value="${status}"
+							th:text="${status.descricao}"></option>
+					</select>
 				</div>
-				<div class="form-group">
-					<input type="submit" class="btn btn-primary" value="Salvar" />
-				</div>
-			</form>
-		</div><!-- / .panel-body -->
-	</div><!-- / .panel-default -->
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-primary" value="Salvar" />
+				<a th:href="@{/contatos}" class="btn btn-danger">Voltar a pesquisa</a>
+			</div>
+		</form>
+	</div>
 
 </section>
 

@@ -2,6 +2,10 @@ body {
 	height: 100vh;
 }
 
+.titulo-painel {
+	margin-bottom: 20px;
+}
+
 .panel-default {
 	margin-right: 10px;
 	margin-left: 10px;

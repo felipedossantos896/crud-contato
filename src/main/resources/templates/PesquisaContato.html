@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorator="LayoutPadrao">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
 
 <section layout:fragment="conteudo">
+
+	<div class="container">
+		
+		<h1 class="titulo-painel">Pesquisa de Contatos</h1>
 	
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th class="col-sm-1 text-center">Código</th>
+						<th class="col-sm-3">Nome</th>
+						<th class="col-sm-2 text-center">Fone Fixo</th>
+						<th class="col-sm-2 text-center">Fone Celular</th>
+						<th class="col-sm-2 text-center">Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="contato: ${contatos}">
+						<td th:text="${contato.codigo}" class="text-center"></td>
+						<td th:text="${contato.nome}"></td>
+						<td th:text="${contato.numeroFixo}" class="text-center"></td>
+						<td th:text="${contato.numeroCelular}" class="text-center"></td>
+						<td class="text-center">
+							<span th:text="${contato.status}" class="label label-success"></span>
+						</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- / .table-responsive -->
+		
+		<a th:href="@{/contatos/novo}" class="btn btn-primary">Novo Contato</a>
+		
+	</div><!-- / .container -->
+
+
 </section>
 
 </html>
