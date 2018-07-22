@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Contato {
@@ -20,11 +21,11 @@ public class Contato {
 	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
-	@NotNull(message = "Número fixo é obrigatório")
+	@NotEmpty(message = "Número fixo é obrigatório")
 	@Column(name = "numero_fixo")
 	private String numeroFixo;
 	
-	@NotNull(message = "Número celular é obrigatório")
+	@NotEmpty(message = "Número celular é obrigatório")
 	@Column(name = "numero_celular")
 	private String numeroCelular;
 	

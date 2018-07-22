@@ -27,14 +27,14 @@
 					<div class="row">
 						<div class="form-group col-sm-4"
 							th:classappend="${#fields.hasErrors('nome')} ? has-error">
-							<label for="nome">Nome</label> <input id="nome" type="text"
+							<label for="nome" class="control-label">Nome</label> <input id="nome" type="text"
 								class="form-control" th:field="*{nome}" />
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group  col-sm-2"
 							th:classappend="${#fields.hasErrors('numeroFixo')} ? has-error">
-							<label for="numeroFixo">Número Fixo</label> <input
+							<label for="numeroFixo" class="control-label">Número Fixo</label> <input
 								id="numeroFixo" type="text" class="form-control"
 								th:field="*{numeroFixo}" />
 						</div>
@@ -42,7 +42,7 @@
 					<div class="row">
 						<div class="form-group  col-sm-2"
 							th:classappend="${#fields.hasErrors('numeroCelular')} ? has-error">
-							<label for="numeroCelular">Número Celular</label> <input
+							<label for="numeroCelular" class="control-label">Número Celular</label> <input
 								id="numeroCelular" type="text" class="form-control"
 								th:field="*{numeroCelular}" />
 						</div>
