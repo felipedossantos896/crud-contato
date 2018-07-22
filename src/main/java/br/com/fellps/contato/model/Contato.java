@@ -7,6 +7,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Contato {
@@ -14,13 +17,16 @@ public class Contato {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
+	@NotNull(message = "Número fixo é obrigatório")
 	@Column(name = "numero_fixo")
-	private Integer numeroFixo;
+	private String numeroFixo;
 	
+	@NotNull(message = "Número celular é obrigatório")
 	@Column(name = "numero_celular")
-	private Integer numeroCelular;
+	private String numeroCelular;
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
@@ -45,19 +51,19 @@ public class Contato {
 		this.nome = nome;
 	}
 
-	public Integer getNumeroFixo() {
+	public String getNumeroFixo() {
 		return numeroFixo;
 	}
 
-	public void setNumeroFixo(Integer numeroFixo) {
+	public void setNumeroFixo(String numeroFixo) {
 		this.numeroFixo = numeroFixo;
 	}
 
-	public Integer getNumeroCelular() {
+	public String getNumeroCelular() {
 		return numeroCelular;
 	}
 
-	public void setNumeroCelular(Integer numeroCelular) {
+	public void setNumeroCelular(String numeroCelular) {
 		this.numeroCelular = numeroCelular;
 	}
 

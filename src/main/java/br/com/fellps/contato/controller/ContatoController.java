@@ -5,11 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fellps.contato.model.Contato;
 import br.com.fellps.contato.model.Status;
@@ -30,9 +33,15 @@ public class ContatoController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String salvar(Contato contato) {
-		System.out.println("Salvando....." + contato.getNome());
+	public String salvar(@Validated Contato contato, Errors errors, RedirectAttributes redirectAttributes) {
+		if(errors.hasErrors()) {
+			System.out.println("Tem erro!");
+			return "CadastroContato";
+		}
+		
+		System.out.println("Salvando");
 		contatoService.salvar(contato);
+		redirectAttributes.addFlashAttribute("mensagem", "Contato salvo com sucesso!");
 		return "redirect:/contatos/novo";
 	}
 	

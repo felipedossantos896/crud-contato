@@ -1,0 +1,25 @@
+body {
+	height: 100vh;
+}
+
+.titulo-painel {
+	margin-bottom: 20px;
+}
+
+.panel-default {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.botao-novo {
+	margin-bottom: 10px;
+}
+
+.link-pesquisa {
+	float: right;
+	padding: 0;
+}
+
+.painel-titulo {
+	float: left;
+}
